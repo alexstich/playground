@@ -1,5 +1,17 @@
 import Foundation
 
+// Output for n = 30
+
+// Using memoization
+// Execution time: 0.07 seconds
+// Maximum memory usage: 0.00 MB
+//
+
+// Not using memoization
+// Execution time: 108.40 seconds
+// Maximum memory usage: 1075.52 MB
+
+
 // Function to get current memory usage
 func reportMemory() -> UInt64 {
 	var info = mach_task_basic_info()
@@ -48,6 +60,8 @@ func measureMaxMemoryUsage(operation: () -> Void) -> UInt64 {
 	return maxMemoryUsage
 }
 
+
+//  Switch function
 // -----------------------------
 
 // Function without memoization
@@ -78,6 +92,8 @@ func fibonacci(_ n: Int) -> Int {
 
 // -----------------------------
 
+
+
 // Measure time before the operation
 let startTime = Date()
 
@@ -92,7 +108,9 @@ let endTime = Date()
 // Calculate the time interval
 let timeInterval = endTime.timeIntervalSince(startTime)
 
+
 // Print results in a readable format
 print(String(format: "Execution time: %.2f seconds", timeInterval))
 print(String(format: "Maximum memory usage: %.2f MB", Double(maxMemoryUsed) / 1024.0 / 1024.0))
+
 
